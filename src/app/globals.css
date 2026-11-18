@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "Manrope";
+  src: url("../assets/manrope.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+:root {
+  --background: #000;
+  --surface: #090e10;
+  --text: #e4edef;
+  --muted: #909fa5;
+  --accent: #70d9df;
+  --line: #192225;
+  color-scheme: dark;
+  font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--background);
+  color: var(--text);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+html { scroll-padding-top: 88px; }
+body { margin: 0; min-width: 320px; }
+button, input { font: inherit; }
+button, a, input { -webkit-tap-highlight-color: transparent; }
+button, a { touch-action: manipulation; }
+button { cursor: pointer; }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+::selection { background: var(--accent); color: var(--background); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link { position: fixed; top: -100px; left: 16px; padding: 12px 16px; background: var(--accent); color: var(--background); z-index: 30; }
+.skip-link:focus { top: 12px; }
+.page-shell { max-width: 720px; margin: 0 auto; padding: 12px 20px 32px; }
+.search-dock { position: sticky; top: 0; z-index: 10; padding: 16px 0; background: var(--background); }
+.search-field { display: flex; align-items: center; gap: 12px; height: 52px; padding: 0 14px; border: 1px solid #2a3b40; border-radius: 6px; background: var(--surface); }
+.search-field:focus-within { border-color: var(--accent); }
+.search-field > svg { flex-shrink: 0; color: var(--accent); }
+.search-field input { width: 100%; min-width: 0; height: 100%; padding: 0; border: 0; outline: none; background: transparent; color: var(--text); font-size: 16px; }
+.search-field input::placeholder { color: var(--muted); opacity: 1; }
+.search-field input::-webkit-search-cancel-button { -webkit-appearance: none; }
+.icon-button { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 4px; color: #789095; background: transparent; }
+.icon-button:hover, .icon-button:focus-visible, .icon-button.is-copied { color: var(--accent); }
+.clear-search { margin-right: -10px; }
+.song-list ol { margin: 0; padding: 0; list-style: none; }
+.song-row { display: flex; align-items: center; gap: 12px; padding: 17px 0; border-bottom: 1px solid var(--line); }
+.song-info { flex: 1; min-width: 0; }
+.song-info h2 { margin: 0; font-size: 15px; font-weight: 500; line-height: 1.5; color: var(--accent); overflow-wrap: anywhere; }
+.song-info p { margin: 5px 0 0; font-size: 13px; line-height: 1.5; color: var(--muted); overflow-wrap: anywhere; }
+.copy-button { margin-right: -10px; }
+.result-note { margin: 8px 0 0; font-size: 12px; line-height: 1.5; color: var(--muted); }
+.empty-state { margin: 0; padding: 28px 0; font-size: 14px; color: var(--muted); }
+.copy-error { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100% - 32px); padding: 12px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; font-size: 13px; z-index: 20; }
+
+@media (max-width: 560px) {
+  .page-shell { padding: 0 16px calc(24px + env(safe-area-inset-bottom)); }
+}
